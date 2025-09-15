@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "936351806230",
+    "project_id": "first-steps-6fd6df",
+    "storage_bucket": "first-steps-6fd6df.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:936351806230:android:60336d0dd06e4fc09f9637",
+        "android_client_info": {
+          "package_name": "com.example.firebase_first_steps"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3zgsgpFEjWK4OgqUNfgQJBenhnbZ-Xkc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
