@@ -7,6 +7,24 @@ class ScreenLoginBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const GoogleSignInButton(buttonFontSize: GoogleButtonFontSize.fs14);
+    final double screenWidth = MediaQuery.of(context).size.width;
+    return Padding(
+      padding: EdgeInsets.all(16),
+      child: Card(
+        child: SizedBox(
+          width: double.infinity,
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: const Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                GoogleSignInButton(buttonFontSize: GoogleButtonFontSize.fs14),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
