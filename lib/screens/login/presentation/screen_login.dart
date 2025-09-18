@@ -12,6 +12,7 @@ class ScreenLogin extends StatelessWidget {
       appBar: CustomAppBar(
         icon: LucideIcons.key300,
         title: "Login",
+        actions: [],
       ),
       body: ScreenLoginBody(),
     );

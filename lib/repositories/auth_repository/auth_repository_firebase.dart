@@ -26,12 +26,10 @@ class AuthRepositoryFirebase implements AuthRepository {
   Future<void> signOut() async {
     await GoogleSignIn.instance.signOut();
     await FirebaseAuth.instance.signOut();
-    
   }
 
   @override
   Stream<User?> authStateChanges() {
-    
     return FirebaseAuth.instance.authStateChanges();
   }
 

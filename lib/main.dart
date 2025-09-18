@@ -31,8 +31,9 @@ class MainApp extends StatelessWidget {
   const MainApp({super.key, required this.theme});
   @override
   Widget build(BuildContext context) {   
+    var auth = Provider.of<AuthRepositoryFirebase>(context, listen: false);
     return StreamBuilder<User?>(
-      stream: FirebaseAuth.instance.authStateChanges(),
+      stream: auth.authStateChanges(),
       builder: (context, snapshot) {
         return MaterialApp(
           darkTheme: theme,
