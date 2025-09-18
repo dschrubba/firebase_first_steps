@@ -1,14 +1,14 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_first_steps/firebase_options.dart';
+import 'package:firebase_first_steps/repositories/auth_repository/auth_repository_firebase.dart';
 import 'package:firebase_first_steps/screens/home/presentation/screen_home.dart';
 import 'package:firebase_first_steps/screens/login/presentation/screen_login.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-
     var colorScheme = ColorScheme.fromSeed(
       brightness: Brightness.dark,
       seedColor: Color(0xFFBC00BC));
@@ -16,19 +16,21 @@ void main() async {
       brightness: Brightness.dark,
       colorScheme: colorScheme
       );
-  
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  runApp(MainApp(theme: theme));
+  runApp(
+    MultiProvider(
+      providers: [
+        Provider<AuthRepositoryFirebase>(create: (_) => AuthRepositoryFirebase()),
+      ],
+      child: MainApp(theme: theme),
+    ));
 }
 
 class MainApp extends StatelessWidget {
   final ThemeData theme;
   const MainApp({super.key, required this.theme});
-
   @override
-  Widget build(BuildContext context) {
-
-    
+  Widget build(BuildContext context) {   
     return StreamBuilder<User?>(
       stream: FirebaseAuth.instance.authStateChanges(),
       builder: (context, snapshot) {

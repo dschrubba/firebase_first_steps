@@ -1,12 +1,11 @@
-import 'dart:developer';
-
 import 'package:firebase_first_steps/theme/brands.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class GoogleSignInButton extends StatelessWidget {
   final GoogleButtonFontSize buttonFontSize;
-  const GoogleSignInButton({super.key, required this.buttonFontSize});
+  final Function onButtonPress;
+  const GoogleSignInButton({super.key, required this.buttonFontSize, required this.onButtonPress});
   @override
   Widget build(BuildContext context) {
     var inkWellKey = GlobalKey();
@@ -64,7 +63,7 @@ class GoogleSignInButton extends StatelessWidget {
               child: InkWell(
                 key: inkWellKey,
                 onTap: () {
-                  log("InkWell tapped!");
+                  onButtonPress();
                 },
               ),
             ),

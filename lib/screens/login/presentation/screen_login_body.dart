@@ -1,13 +1,18 @@
+import 'package:firebase_first_steps/repositories/auth_repository/auth_repository_firebase.dart';
 import 'package:firebase_first_steps/theme/brands.dart';
 import 'package:firebase_first_steps/widgets/google_sign_in_button/google_sign_in_button.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ScreenLoginBody extends StatelessWidget {
   const ScreenLoginBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final double screenWidth = MediaQuery.of(context).size.width;
+    AuthRepositoryFirebase auth = Provider.of<AuthRepositoryFirebase>(
+      context,
+      listen: false
+      );
     return Padding(
       padding: EdgeInsets.all(16),
       child: Card(
@@ -15,11 +20,16 @@ class ScreenLoginBody extends StatelessWidget {
           width: double.infinity,
           child: Padding(
             padding: const EdgeInsets.all(16),
-            child: const Column(
+            child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                GoogleSignInButton(buttonFontSize: GoogleButtonFontSize.fs14),
+                GoogleSignInButton(
+                  buttonFontSize: GoogleButtonFontSize.fs14,
+                  onButtonPress: () {
+                    auth.signInWithGoogle();
+                  },
+                  ),
               ],
             ),
           ),
