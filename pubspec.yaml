@@ -11,6 +11,10 @@ dependencies:
     sdk: flutter
   firebase_core: ^4.1.0
   firebase_auth: ^6.0.2
+  lucide_icons_flutter: ^3.1.0
+  google_sign_in: ^7.2.0
+  flutter_svg: ^2.2.1
+  flutter_svg_provider: ^1.0.7
 
 dev_dependencies:
   flutter_test:
@@ -19,3 +23,14 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-VariableFont_wdth.ttf
+        - asset: assets/fonts/Roboto-Italic-VariableFont_wdth.ttf
+          style: italic
+
+  assets:
+    - assets/google/g-logo.svg
+    - assets/google/g-logo.png

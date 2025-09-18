@@ -12,7 +12,12 @@
           "package_name": "com.example.firebase_first_steps"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "936351806230-m359q0q02p605l8c50u4ekchqnioauml.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyA3zgsgpFEjWK4OgqUNfgQJBenhnbZ-Xkc"
@@ -20,7 +25,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "936351806230-m359q0q02p605l8c50u4ekchqnioauml.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "936351806230-rjmjjn2rmcapfe4en554gj0u2eh7eorr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.firebaseFirstSteps"
+              }
+            }
+          ]
         }
       }
     }

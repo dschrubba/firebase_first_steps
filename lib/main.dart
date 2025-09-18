@@ -1,24 +1,44 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_first_steps/firebase_options.dart';
+import 'package:firebase_first_steps/screens/home/presentation/screen_home.dart';
+import 'package:firebase_first_steps/screens/login/presentation/screen_login.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+
+    var colorScheme = ColorScheme.fromSeed(
+      brightness: Brightness.dark,
+      seedColor: Color(0xFFBC00BC));
+    var theme = ThemeData(
+      brightness: Brightness.dark,
+      colorScheme: colorScheme
+      );
+  
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  runApp(const MainApp());
+  runApp(MainApp(theme: theme));
 }
 
 class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+  final ThemeData theme;
+  const MainApp({super.key, required this.theme});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+
+    
+    return StreamBuilder<User?>(
+      stream: FirebaseAuth.instance.authStateChanges(),
+      builder: (context, snapshot) {
+        return MaterialApp(
+          darkTheme: theme,
+          themeMode: ThemeMode.dark,
+          key: Key(snapshot.data?.uid ?? 'no_user'),
+          home: snapshot.hasData ? ScreenHome() : ScreenLogin(),
+    );
+      },
     );
   }
 }
