@@ -38,7 +38,8 @@ class MainApp extends StatelessWidget {
         return MaterialApp(
           darkTheme: theme,
           themeMode: ThemeMode.dark,
-          key: Key(snapshot.data?.uid ?? 'no_user'),
+          //key: Key(snapshot.data?.uid ?? 'no_user'),
+          key: Key(snapshot.data?.uid ?? UniqueKey().toString()),
           home: snapshot.hasData ? ScreenHome() : ScreenLogin(),
     );
       },
