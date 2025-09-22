@@ -64,6 +64,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '936351806230',
     projectId: 'first-steps-6fd6df',
     storageBucket: 'first-steps-6fd6df.firebasestorage.app',
+    androidClientId: '936351806230-fe79en58i557b47sb0cu5f13hjpro881.apps.googleusercontent.com',
+    iosClientId: '936351806230-rjmjjn2rmcapfe4en554gj0u2eh7eorr.apps.googleusercontent.com',
     iosBundleId: 'com.example.firebaseFirstSteps',
   );
 
@@ -73,6 +75,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '936351806230',
     projectId: 'first-steps-6fd6df',
     storageBucket: 'first-steps-6fd6df.firebasestorage.app',
+    androidClientId: '936351806230-fe79en58i557b47sb0cu5f13hjpro881.apps.googleusercontent.com',
+    iosClientId: '936351806230-rjmjjn2rmcapfe4en554gj0u2eh7eorr.apps.googleusercontent.com',
     iosBundleId: 'com.example.firebaseFirstSteps',
   );
 
@@ -85,4 +89,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'first-steps-6fd6df.firebasestorage.app',
     measurementId: 'G-SBKTGGW1LH',
   );
+
 }
