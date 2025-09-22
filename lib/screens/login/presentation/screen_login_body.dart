@@ -1,6 +1,7 @@
 import 'package:firebase_first_steps/repositories/auth_repository/auth_repository_firebase.dart';
 import 'package:firebase_first_steps/theme/brands.dart';
 import 'package:firebase_first_steps/widgets/google_sign_in_button/google_sign_in_button.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -51,12 +52,25 @@ class _ScreenLoginBodyState extends State<ScreenLoginBody> {
                         decoration: getInputDecoration(context, "Passwort"),
                         obscureText: true,
                       ),
-                      FilledButton(onPressed: () {
-                        auth.signInWithEmailAndPassword(
-                          usernameController!.text.trim(), 
-                          passwordController!.text.trim()
-                          );
-                      }, child: Text("Sign In"))
+                      Row(
+                        spacing: 16,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          if (kDebugMode)
+                          OutlinedButton(onPressed: () {
+                            setState(() {
+                              usernameController?.text = "bob@test.lol";
+                              passwordController?.text = "123456";
+                            });
+                          }, child: Text("Autofill")),
+                          FilledButton(onPressed: () {
+                            auth.signInWithEmailAndPassword(
+                              usernameController!.text.trim(), 
+                              passwordController!.text.trim()
+                              );
+                          }, child: Text("Sign In")),
+                        ],
+                      )
                     ],
                   ),
                 ),
